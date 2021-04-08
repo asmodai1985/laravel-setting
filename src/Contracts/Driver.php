@@ -61,7 +61,7 @@ abstract class Driver
 
         $this->load();
 
-        return Arr::get($this->data, $key, $default);
+        return Arr::get($this->data, $key, $this->with_fallback ? $default : $this->getFallback($key, $default));
     }
 
     /**
